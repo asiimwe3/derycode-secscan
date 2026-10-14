@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Derycode SecScan — Test your software before hackers do</title>
+<meta name="description" content="Derycode SecScan is a defensive vulnerability scanner for websites you own. One command checks exposed files, open admin panels, security headers and information leaks — before attackers find them.">
+<link rel="icon" href="favicon.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0d1117;color:#e6edf3;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,#0d1117,#161b22 60%,#1c2530);border-bottom:1px solid #30363d;padding:60px 0 40px;text-align:center}
+.badge{display:inline-block;background:#1c2530;border:1px solid #2e4a68;color:#58a6ff;border-radius:999px;padding:6px 16px;font-weight:700;font-size:14px;letter-spacing:.5px;margin-bottom:18px}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.15}
+h1 em{color:#58a6ff;font-style:normal}
+.sub{color:#8b949e;font-size:18px;max-width:640px;margin:14px auto 0}
+.cmd{background:#010409;border:1px solid #30363d;border-radius:12px;padding:16px 20px;font-family:ui-monospace,Consolas,monospace;color:#7ee787;font-size:15px;margin:28px auto 0;max-width:560px;text-align:left;overflow-x:auto}
+.note{color:#8b949e;font-size:13px;margin-top:10px}
+section{padding:44px 0;border-bottom:1px solid #21262d}
+h2{font-size:26px;margin-bottom:18px;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:14px;padding:18px}
+.card b{display:block;font-size:16px;color:#fff;margin-bottom:6px}
+.card span{color:#8b949e;font-size:14px}
+.sev{display:flex;gap:12px;align-items:flex-start;margin:10px 0}
+.dot{min-width:14px;height:14px;border-radius:50%;margin-top:5px}
+.c{background:#f85149}.h{background:#fb8500}.m{background:#e3b341}.l{background:#58a6ff}.i{background:#8b949e}
+.sev b{color:#fff}.sev p{color:#8b949e;font-size:14px}
+footer{padding:34px 0;color:#8b949e;font-size:14px;text-align:center}
+footer a{color:#58a6ff;text-decoration:none}
+.btn{display:inline-block;background:#238636;color:#fff;font-weight:700;text-decoration:none;border-radius:12px;padding:14px 26px;margin-top:22px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="badge">DERYCODE SECSCAN · v1.0</div>
+    <h1>Test your software <em>before hackers do</em></h1>
+    <p class="sub">A defensive vulnerability scanner for websites you own. One command checks for exposed files, open admin panels, missing security headers and information leaks — the first things an attacker looks for.</p>
+    <div class="cmd">python3 secscan.py https://your-site.com</div>
+    <p class="note">Pure Python — no installation, no dependencies. Passive checks only, nothing is exploited or modified.</p>
+  </div>
+</header>
+<section><div class="wrap">
+  <h2>What it finds</h2>
+  <div class="grid">
+    <div class="card"><b>🔴 Exposed secrets</b><span>.git folders, .env files, SQL dumps, phpinfo pages — the fastest way attackers steal your code and credentials.</span></div>
+    <div class="card"><b>🟠 Open admin panels</b><span>Checks /admin, /dashboard, /panel and more, and whether they actually demand a login before showing anything.</span></div>
+    <div class="card"><b>🟡 Security headers</b><span>HSTS, CSP, clickjacking and MIME-sniffing protection — the headers that stop XSS and framing attacks.</span></div>
+    <div class="card"><b>🔵 Information leaks</b><span>Directory listings, server versions, dependency files and open API endpoints returning JSON to anyone.</span></div>
+  </div>
+</div></section>
+<section><div class="wrap">
+  <h2>Graded like an exam</h2>
+  <div class="sev"><div class="dot c"></div><div><b>Critical — fix today</b><p>Exposed secrets, database files, passwords travelling over plain HTTP.</p></div></div>
+  <div class="sev"><div class="dot h"></div><div><b>High — fix this week</b><p>Unprotected panels, cookie theft paths, CORS misconfigurations.</p></div></div>
+  <div class="sev"><div class="dot m"></div><div><b>Medium — plan the fix</b><p>CSP, clickjacking protection, mixed content.</p></div></div>
+  <div class="sev"><div class="dot l"></div><div><b>Low — hardening</b><p>Version disclosure and minor header hygiene.</p></div></div>
+</div></section>
+<section><div class="wrap">
+  <h2>Built-in safety</h2>
+  <p style="color:#8b949e">SecScan sends only safe GET requests and passive checks — no attack payloads, no credential guessing, no changes to your site. Use it only on systems you own or have written permission to test. Non-zero exit code on findings means it fits straight into a CI pipeline.</p>
+  <a class="btn" href="https://github.com/asiimwe3/derycode-secscan">View on GitHub →</a>
+</div></section>
+<footer>Part of the <a href="https://derycode.online">Derycode</a> software suite · Built in Uganda 🇺🇬</footer>
+</body>
+</html>
